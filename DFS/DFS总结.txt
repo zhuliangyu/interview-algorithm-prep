@@ -5,9 +5,13 @@ Array + DFS
 	combination
 	字符串切分
 
-2D Array + DFS
-	棋盘 
+Matrix + DFS
+	岛屿问题
+	https://leetcode-cn.com/problems/number-of-islands/solution/dao-yu-lei-wen-ti-de-tong-yong-jie-fa-dfs-bian-li-/
+	 
 
 Tree + DFS
+	递归 + traverse
+	递归 + divide conquer
 
 Graph + DFS

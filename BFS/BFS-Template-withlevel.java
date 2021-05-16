@@ -19,8 +19,9 @@ int BFS(Node start, Node target) {
             
             Node cur = q.poll();
             
-            /* 划重点：这里判断是否到达终点 */
+            /* 划重点：这里判断是否到达终点 计算最短距离*/
             if (cur is target)
+                // 找到target, 提前结束
                 return step;
 
             /* 将 cur 的相邻节点加入队列 */

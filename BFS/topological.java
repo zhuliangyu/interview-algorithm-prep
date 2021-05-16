@@ -20,11 +20,11 @@ public class Solution {
         ArrayList<DirectedGraphNode> result = new ArrayList<DirectedGraphNode>();
 
         // 制作入度表
+        // 入度表里只有 >= 1的node
         HashMap<DirectedGraphNode, Integer> map = new HashMap();
 
-        // 入度表里只有 >= 1的node
-        for (DirectedGraphNode node : graph) {
-            for (DirectedGraphNode neighbor : node.neighbors) {
+        for (DirectedGraphNode node : graph) { // 所有点
+            for (DirectedGraphNode neighbor : node.neighbors) { // 点对应的邻居
                 // 每包含一次, + 1
                 if (map.containsKey(neighbor)) {
                     map.put(neighbor, map.get(neighbor) + 1);
@@ -55,7 +55,7 @@ public class Solution {
             DirectedGraphNode node = q.poll();
 
             for (DirectedGraphNode n : node.neighbors) {
-                // 入度 - 1
+                //破局关键: 这个点的所有邻居的入度 - 1
                 map.put(n, map.get(n) - 1);
 
                 // when 入度 == 0, 加入result
@@ -71,6 +71,6 @@ public class Solution {
     }
 }
 
-
+// 更详细的解答
 // https://leetcode-cn.com/problems/course-schedule/solution/course-schedule-tuo-bu-pai-xu-bfsdfsliang-chong-fa/
 // https://www.jiuzhang.com/solutions/topological-sorting/
