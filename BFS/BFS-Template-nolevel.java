@@ -1,6 +1,7 @@
 
 
 // 不考虑分层问题的模板
+
 queue.add (root)
 
 while (queue 不空) {

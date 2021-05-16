@@ -1,3 +1,5 @@
+
+// 数据结构: Tree + BFS
 public class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
         
@@ -16,7 +18,7 @@ public class Solution {
         while (!queue.isEmpty()) {
 
             // 本层临时的记录
-            ArrayList<Integer> level = new ArrayList<Integer>();
+            List<Integer> level = new ArrayList<Integer>();
             
             // 本层元素的数量
             int size = queue.size();
@@ -33,11 +35,13 @@ public class Solution {
                 
                 //////////////////////////////////
                 // for 节点 in cur的所有相邻节点：
+                // if 该节点有效且未被访问过：
                 if (head.left != null) {
                     // 下一层node加入
                     queue.offer(head.left);
                 }
                 
+                // if 该节点有效且未被访问过：
                 if (head.right != null) {
                     // 下一层node加入
                     queue.offer(head.right);
