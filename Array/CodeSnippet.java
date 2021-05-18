@@ -21,6 +21,9 @@ public char lowercaseToUppercase(char character) {
         return (char)(character - 'a' + 'A');
 }
 
+// 判断是否小写字符
+if (str[i] >= 'a' && str[i] <= 'z')
+
 // 闰年
 if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {}
 
@@ -101,4 +104,6 @@ public int getAnswer(int num) {
         return count;
     }
 
-// 找素数
+// 字符串 -> char数组
+char[] c = str.toCharArray();
+
