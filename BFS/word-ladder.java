@@ -26,9 +26,13 @@ public class Solution {
         int step = 1;
         while (!queue.isEmpty()) {
             int currentSize = queue.size();
+
+            // 层级遍历
             for (int i = 0; i < currentSize; i++) {
                 // 依次遍历当前队列中的单词
                 String currentWord = queue.poll();
+
+                // 第二个for, 找到所有neighbour的可能性
                 // 如果 currentWord 能够修改 1 个字符与 endWord 相同，则返回 step + 1
                 if (changeWordEveryOneLetter(currentWord, endWord, queue, visited, wordSet)) {
                     return step + 1;
@@ -52,11 +56,13 @@ public class Solution {
     private boolean changeWordEveryOneLetter(String currentWord, String endWord,
                                              Queue<String> queue, Set<String> visited, Set<String> wordSet) {
         char[] charArray = currentWord.toCharArray();
+
+        // 第二个for, 穷举所有neighbour的可能性
+        // 每一位都可以改变, 可能改变是从a-z
         for (int i = 0; i < endWord.length(); i++) {
             // 先保存，然后恢复
             char originChar = charArray[i];
 
-            //穷举所有可能性
             for (char k = 'a'; k <= 'z'; k++) {
                 //跳过自身
                 if (k == originChar) {
@@ -65,6 +71,7 @@ public class Solution {
 
                 charArray[i] = k;
                 String nextWord = String.valueOf(charArray);
+
                 if (wordSet.contains(nextWord)) {
 
                     // 找到了!!
