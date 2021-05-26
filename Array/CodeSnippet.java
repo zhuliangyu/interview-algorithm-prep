@@ -107,3 +107,34 @@ public int getAnswer(int num) {
 // 字符串 -> char数组
 char[] c = str.toCharArray();
 
+// array -> ArrayList
+String[] array = {"a", "b", "c", "d", "e"};
+List<String> list1 = new ArrayList<String>();
+Collections.addAll(list1, array);
+
+// sort arrayList
+// 因为sort会直接修改原值, 所以我们一般要复制一份, 然后对复制的List上做排序
+List<String> sortedList = new ArrayList<>(list);
+Collections.sort(sortedList)
+
+ //Add element at index to an arraylist
+ // [alex, brian, charles]
+namesList.add(index, "Lokesh");
+ // [Lokesh, alex, brian, charles] 
+
+
+// Replace element at specified index to an arrayList
+namesList.set(index, "Lokesh");
+// [alex, brian, charles]
+// [Lokesh, brian, charles]
+
+// ArrayList remove by index
+// 0, 1, 2(deleted)
+list.remove((2);
+
+// ArrayList remove object
+list.remove(((Integer) 2;
+
+
+
+

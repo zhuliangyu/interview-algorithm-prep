@@ -1,0 +1,108 @@
+二分法思路: 
+1. 确定答案的范围是什么: 
+    * 如果这道题是个数组, 这个范围题目已经给了
+    * 如果这个是个无限大的数组, 你需要用API去寻找一个end
+    * 如果你是要寻找平方根, 范围就是从1到数字本身
+2. 确定你要寻找的是first 还是last item
+3. 满足什么样条件的
+    * 或者是 == 某个target值
+    * 或者是 >= 某个值
+3. 如何每次丢掉另一半, 然后保留一半
+
+有四个数字在玩游戏: start, end, mid 和target
+每一次都是在判断mid和target的关系, 然后把mid或者移动到start或者移动到end上
+
+
+题型
+二分查找一个固定的目标
+二分查找一个范围, 一般是第一个大于某个数的index, 或者最后一个小于某个数的index
+
+OOOOOOOXXXXXX
+其实就是用二分法寻找第一个x的位置
+
+找到数组中第一个 >= 3的index
+也是xxx000的题型
+
+First Bad Version
+二分法, 找到第一个错误的版本
+
+无限长度的数组 + 二分题
+用二分法, 你不知道你的end在哪里, 怎么办? 
+使用动态倍增的方法去找右边界
+1
+2
+4
+8
+16
+32
+...
+2^n找到一个数字 > 这个target的数字
+使用logk的方法找到end
+这个就是动态数组的扩容的方法
+
+
+
+2d array 二分查找
+https://leetcode-cn.com/problems/search-a-2d-matrix/solution/sou-suo-er-wei-ju-zhen-by-leetcode-solut-vxui/
+两步二分查找: 
+* 二分查找 第1列, 找到第一个 <= target的 行数n
+* 二分查找 第n行, 找到这个target这个数
+
+
+
+搜索区间
+https://www.jiuzhang.com/solution/search-for-a-range/
+给定一个包含 n 个整数的排序数组，找出给定目标值 target 的起始和结束位置。
+eg. 
+数组 = [5, 7, 7, 8, 8, 10]
+target = 8
+[3,4]
+由于是排序数组，两次二分查找，一个是第一次比target-1大的位置，一个是第一次比他target大的位置。返回即可
+错误的解法: 找到第一个target和最后一个target的数字, 因为你不知道这个target是否存在, 所以找的是区间, 而不是一个固定的目标
+-- 这种题目的变种是: 寻找某个target出现的频率, 你找到数组, 频率就是数组的 (头尾相减 + 1)
+
+
+寻找峰值
+https://leetcode-cn.com/problems/find-peak-element/solution/
+我们这里没有一个特定的target去寻找
+mid 在上升区间, 峰肯定在右边 , 二分法的左边就不要了
+    * 判断上升, mid + 1 > mid > mid -1
+mid 在下降区间, 峰肯定在左边
+    * 判断下降, mid + 1 < mid < mid -1
+mid 在 谷底, 左右都有峰, 随便怎么走都可以
+    * 判断谷底, mid < mid + 1 and mid < mid - 1
+mid 在峰值, 这个就是我们要寻找的target
+
+
+
+rotated sorted array 找最小值
+https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/
+我们这里不是在找一个特定的target值
+转化为, 二分法, find first number <= last item
+错误的想法是 找first index <= first item
+
+
+search rotated sorted array
+https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
+https://www.jiuzhang.com/solution/search-in-rotated-sorted-array/
+答案: 搜索 searchRotatedSortedArray
+
+做两次二分的方法: 
+第一次, 先按照前面的方法, 找到rotated sorted array最小值, 然后把数组一分为二的有序数组, 你就知道该在左边还是右边去找
+第二次, 在其中一个有序的数组中做二分
+
+只做一次二分的方法: 
+先寻找有序的一半的区间, 然后你就可以比较在有序的那一半区间里面target在不在里面, 这样就可以扔一半的数据
+ 1 2 3 4 5 6 7 可以大致分为两类，
+第一类 2 3 4 5 6 7 1 这种，也就是 nums[start] <= nums[mid]。此例子中就是 2 <= 5。
+这种情况下，前半部分有序。因此如果 nums[start] <=target<nums[mid]，则在前半部分找，否则去后半部分找。
+第二类 6 7 1 2 3 4 5 这种，也就是 nums[start] > nums[mid]。此例子中就是 6 > 2。
+这种情况下，后半部分有序。因此如果 nums[mid] <target<=nums[end]，则在后半部分找，否则去前半部分找。
+
+
+求平方根
+https://www.jiuzhang.com/solution/sqrtx/
+使用二分法, find the last number, (last number) ^2 <= x
+
+切木头
+https://www.jiuzhang.com/solution/wood-cut/
