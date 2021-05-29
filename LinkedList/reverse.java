@@ -19,7 +19,8 @@ public class ReverseLinkedList {
         ListNode curr = head;
         
         // dummy node before head
-        ListNode pre = null;
+        // reverse一个链表, 肯定会影响这个pre
+        ListNode prev  = null;
 
         // pre     curr            
         // null     A       ->      B       ->     C        ->        Null
@@ -29,22 +30,25 @@ public class ReverseLinkedList {
             // 需要有三个指针分别指向前\中\后 
             // 注意程序的特点是首尾相接, 和swap很类似的结构
 
-            // pre     curr            next
+            // prev     curr            next
             // null     A       ->      B       ->     C        ->        Null
 
-            // 临时变量
+            // 有curr, 有pre, 现在需要找到next
+            // 三个指针都准备好了
             ListNode next = curr.next;
 
-            // pre          curr         next
+            // prev          curr         next
             // null     <-  A             B       ->     C        ->        Null
-            curr.next = pre;
+            curr.next = prev;
 
             //              pre          curr          next
             // null     <-  A             B       ->     C        ->        Null
-            pre = curr;
+            // 两个指针一起往后挪动
+            // 记住前面的pre先挪动, 然后再移动curr; 顺序千万不能反了
+            prev = curr;
             curr = next;
         }
 
-        return pre;
+        return prev;
     }
 }

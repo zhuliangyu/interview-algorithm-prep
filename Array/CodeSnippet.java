@@ -135,6 +135,9 @@ list.remove((2);
 // ArrayList remove object
 list.remove(((Integer) 2;
 
+// find min or max
+Math.min(1, 2)
+
 
 
 

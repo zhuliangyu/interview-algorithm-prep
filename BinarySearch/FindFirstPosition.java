@@ -17,18 +17,25 @@ public class Solution {
         while (start + 1 < end) {
             int mid = start + (end - start) / 2;
             if (nums[mid] == target) {
+                // 满足条件!!
+
                 // 这个地方是和模板不同的部分!!!!!!
                 // 你找到第一个, 不能return, 必须要把这个当做end再继续找
                 // 有可能end之前再没有了, end就是第一个
                 // 如果end 之前还有, end就被替换更前面的index
                 end = mid;
             } else if ( target > nums[mid]) {
+                // 不满足条件
+
                 // [start........mid.......target....end]
                 // [............start......target....end]
                 // target 在右半部分
                 start = mid;
             } else {
+                // 不满足条件
+
                 // target 在左半部分
+                // 无脑反向即可
                 end = mid;
             }
         }

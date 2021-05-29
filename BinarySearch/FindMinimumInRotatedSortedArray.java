@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/
+
 public class Solution {
     /**
      * @param nums: a rotated sorted array
@@ -21,13 +23,15 @@ public class Solution {
             // 这题并没有一个target让我去找, 所以没有 if (target == nums[mid])的语句
             // 只是不停的改变start 和 end的指针
             // 最终离开这个while循环语句
-            if (nums[mid] > nums[end]) {
-                // min 在右半段
-                start = mid;
-            } else {
-                // nums[mid] <= nums[end]
-                // min 在左半段
+            
+            // 解题关键: 寻找第一个index <= 最后一个元素
+            if (nums[mid] <= nums[end]) {
+                // 满足条件, 因为是找第一个, 赋值end, 继续找
                 end = mid;
+                
+            } else {
+                // 取反即可!, 不用管理由
+                start = mid;
             }
         }
         

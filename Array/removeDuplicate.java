@@ -1,3 +1,5 @@
+
+// leetcode 26
 int removeDuplicate(int[] nums) {
 	if (nums.size == 0) {
 		return 0;

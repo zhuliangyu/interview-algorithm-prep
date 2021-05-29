@@ -1,6 +1,9 @@
 // 双指针 + 回文
+
+// 两个指针, 一头一尾往中间去的情况
+// 类似题目: 翻转字符串
 private boolean checkPalindrome(char[] charArray, int left, int right) {
-    while (left < right) {
+    while (left < right) { // 不越界
         if (charArray[left] != charArray[right]) {
             return false;
         }
@@ -10,20 +13,4 @@ private boolean checkPalindrome(char[] charArray, int left, int right) {
     return true;
 }
 
-// 双指针 + 翻转字符串
-private static char[] ReverseString(char[] charArray, int left, int right) {
-    while (left < right) {
-        swap(charArray, left, right);
-        
-        left++;
-        right--;
-    }
 
-    return charArray;
-}
-
-private static void swap(char[] A, int index1, int index2) {
-    char tmp = A[index1];
-    A[index1] = A[index2];
-    A[index2] = tmp;
-}

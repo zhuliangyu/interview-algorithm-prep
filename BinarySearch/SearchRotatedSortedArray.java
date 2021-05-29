@@ -6,13 +6,15 @@ public class Solution {
 
         int start = 0;
         int end = A.length - 1;
-        int mid;
         
         while (start + 1 < end) {
-            mid = start + (end - start) / 2;
+            int mid = start + (end - start) / 2;
+
             if (A[mid] == target) {
                 return mid;
             }
+            
+            // 这里是一个最大的变化! 需要有一个上升状态的判断
             if (A[start] < A[mid]) {
                 // start ... mid 之间是在单调上升的阶段
                 if (A[start] <= target && target <= A[mid]) {

@@ -25,6 +25,8 @@ OOOOOOOXXXXXX
 
 First Bad Version
 二分法, 找到第一个错误的版本
+https://leetcode-cn.com/problems/first-bad-version/
+
 
 无限长度的数组 + 二分题
 用二分法, 你不知道你的end在哪里, 怎么办? 

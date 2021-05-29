@@ -26,6 +26,8 @@ public class MyLinkedList {
     public int get(int location) {
         ListNode curr = dummy.next; // head
 
+        // 这里是找某个数据, 而不是做修改
+        // 所以移动的是curr指针
         for (int i = 0; i < location; i++) {
             curr = curr.next;
             // at the location at the right position
@@ -37,6 +39,7 @@ public class MyLinkedList {
     public boolean contains(int value) {
         ListNode cur = dummy.next; // head
 
+        // 移动curr指针
         while (cur != null) {
             if (cur.val == value) {
                 return true;
@@ -51,6 +54,8 @@ public class MyLinkedList {
         // dummy.next = head
         ListNode pre = dummy;
 
+        // 增删都会影响前一个指针
+        // 所以, 移动的时候移动的是pre指针, 而不是curr指针
         for (int i = 0; i < location; i++) {
             // move pre pointer 
             pre = pre.next;
@@ -73,18 +78,19 @@ public class MyLinkedList {
             this.head = newNode;
         }
 
-        newNode.next = pre.next;
-        // curr.next = next
+        // newNode.next = pre.next;
+        curr.next = next
 
-        pre.next = newNode;
-        // pre.next = curr
+        // pre.next = newNode;
+        pre.next = curr
 
     }
 
     public void remove(int location) {
         ListNode pre = dummy;
 
-        // 移动pre指针, 千万不是移动curr指针
+        // 当你要做增删改查的时候移动pre指针, 千万不是移动curr指针
+        // 增删都会影响前一个指针
         for (int i = 0; i < location; i++) {
             pre = pre.next;
         }
