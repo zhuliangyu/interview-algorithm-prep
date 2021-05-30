@@ -13,6 +13,9 @@ int(123 / 10^0  % 10) = 3
 int(123 / 10^1 % 10) = 2
 // 百位
 int(123 / 10^2 % 10) = 1
+// 千位
+int(123 / 10^3 % 10) = 1
+...
 
 // 大小写转换
 public char lowercaseToUppercase(char character) {

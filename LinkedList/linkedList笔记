@@ -1,0 +1,6 @@
+链表题型分类按照出现评率排序
+https://blog.csdn.net/a435262767/article/details/105204012
+
+
+什么时候用dummy Node
+    当你的head会发生变化的时候

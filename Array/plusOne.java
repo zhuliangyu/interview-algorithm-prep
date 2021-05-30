@@ -13,16 +13,17 @@ public class Solution {
     public int[] plusOne(int[] digits) {
         // 题目要求 plus one
         int carries = 1;
-        for(int i = digits.length-1; i>=0 && carries > 0; i--){  // fast break when carries equals zero
+        for(int i = digits.length-1; i >= 0 && carries > 0; i--){  // fast break when carries equals zero
             // 划重点: 这里一个小技巧, 因为carry和plus 都是1, 所以刚开始进入的时候, 直接+1是因为题目要求plus one
             // 之后+1, 是因为进位
             int sum = digits[i] + carries;
 
             // 个位
-            digits[i] = sum % 10;
+            digits[i] = sum / 10^0 % 10;
             // 十位
-            carries = sum / 10;
+            carries = sum / 10^1 %10;
         }
+        // 到这里只是解决了 + 1 的问题, 但是如果是999 + 1, 这个时候是000, carries = 1的情况
 
         // 首位无进位, 直接返回
         // [1,2,3] -> [1,2,4]
@@ -30,7 +31,7 @@ public class Solution {
             return digits;
             
         // 首位需要进位: [9,9,9] -> [1,0,0,0]这样的情况 
-        // 数组扩一位
+        // 数组扩一位, 新建一个数组
         int[] rst = new int[digits.length+1];
         
         // 首位需要进位

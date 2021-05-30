@@ -1,12 +1,24 @@
 // leetcode 25
+
+// 代码思维导图
+// 主方法
+//     setup dummy node
+//     while 判断pre是否为空
+//         执行自定义方法, 返回一个新pre
+
+// 自定义方法
+//     判断链表是否有k个数
+//     翻转链表模板
+//     首尾相连
+
 public class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
         // 所有的链表题目, 上来就给我设置好dummy.next, 最后直接return dummy.next, 这个是套路
         ListNode dummy = new ListNode(0);
+        // dummy指针不能走, 是定海神针, 只能移动pre指针
+        ListNode pre = dummy; // 这步骤的原因是, 能传入我自己的方法的必须是要翻转的前一个数, 这个非dummy莫属, 但是dummy我是不能修改, 所以修改head指针
         dummy.next = head;
 
-        // head = dummy; // 这步骤的原因是, 能传入我自己的方法的必须是要翻转的前一个数, 这个非dummy莫属, 但是dummy我是不能修改, 所以修改head指针
-        ListNode pre = dummy; // 这步骤的原因是, 能传入我自己的方法的必须是要翻转的前一个数, 这个非dummy莫属, 但是dummy我是不能修改, 所以修改head指针
         while (pre != null) {
             // 这个函数可以reverse从这个head开始的k个元素
             // 把下一个pre返还给我
@@ -14,6 +26,7 @@ public class Solution {
             // 如果head为空, 等于是已经完成了, 就不要继续. 
         }
 
+        // 标准套路: 返回dummy.next就是头指针
         return dummy.next;
 
     }
@@ -47,6 +60,8 @@ public class Solution {
         ListNode nkPlusOne = nk.next;
         ListNode newPrev = null; // 这个newPrev和前面的pre不是不同一个东西, 这个是杜撰的null尾
         ListNode curr = n1;
+        
+        // 错误 !!! 我第一次测试的时候, 写成了 curr != nk, 是错的!!
         while (curr != nkPlusOne) { // 这个原来是 curr != null修改过的
             ListNode next = curr.next;
             curr.next = newPrev;

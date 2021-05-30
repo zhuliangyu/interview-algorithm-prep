@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/reverse-linked-list/
+// leetcode 206
 package myLinkedList;
 
 public class ReverseLinkedList {
@@ -49,6 +51,8 @@ public class ReverseLinkedList {
             curr = next;
         }
 
+        // 写错在这个地方: 现在要返回head, 是curr? 还是pre? 
+        // 看while, curr是空才退出循环, 所以现在curr里面是空, 肯定不能返回的是空, 返回的就是pre
         return prev;
     }
 }
