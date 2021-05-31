@@ -21,7 +21,7 @@ class Solution {
             char currChar = s.charAt(curr);
             
             if (map.containsKey(currChar)) {
-                // 只有发现重复了, start才重头开始计算, start从
+                // 只有发现重复了, start才重头开始计算
                 start = Math.max(map.get(currChar), start);
             }
             // 小本每次记录curr的字符, 走一格记录一次
@@ -29,8 +29,9 @@ class Solution {
             // 为什么要 end + 1???, 因为下次直接直接用做start
             map.put(s.charAt(curr), curr + 1);
 
+            // 此次循环的unique的长度
             int thisRoundLength = curr - start + 1;
-
+            // 和历史组好记录打擂台
             ans = Math.max(ans, thisRoundLength);
 
         }

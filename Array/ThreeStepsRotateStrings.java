@@ -12,7 +12,7 @@ step1: reverse[0..3] = dcba efg
 step2: reverse[4..6] = dcba gfe
 step3: reverse[all] = efg abcd
 
- public void rotateString(char[] str, int offset) {
+public void rotateString(char[] str, int offset) {
         // write your code here
         if (str == null || str.length == 0)
             return;
