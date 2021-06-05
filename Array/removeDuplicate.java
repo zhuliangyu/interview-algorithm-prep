@@ -34,7 +34,6 @@ class Solution {
 		}
 	}
 
-
 	// 所有慢指针指向的位置都是non duplicate
 	return slow + 1;
 

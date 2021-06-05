@@ -1,5 +1,8 @@
 // https://leetcode-cn.com/problems/merge-two-sorted-lists/
+// leetcode 21
 
+
+// leetcode 88的区别
 public class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
       // 更加清晰, l1是head, 现在我们要做的是移动curr指针
@@ -17,7 +20,7 @@ public class Solution {
         
         // 11111-111
         // 22222
-        while (l1Curr != null && l2Curr != null) {
+        while (l1Curr != null && l2Curr != null) { // 考虑到 and 和 or 的区别
             if (l1Curr.val < l2Curr.val) {
                 // 对链表的修改, 一定是对pre的next的修改, 而不是对curr的修改
                 pre.next = l1Curr;

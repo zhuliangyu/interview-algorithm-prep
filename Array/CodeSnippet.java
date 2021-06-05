@@ -125,6 +125,11 @@ Collections.sort(sortedList)
 namesList.add(index, "Lokesh");
  // [Lokesh, alex, brian, charles] 
 
+// 在 ArrayList 头加入
+list.add(0, "abc")
+// 在ArrayList 尾部加入
+list.add(list.length - 1, "xyz")
+
 
 // Replace element at specified index to an arrayList
 namesList.set(index, "Lokesh");
@@ -141,6 +146,8 @@ list.remove(((Integer) 2;
 // find min or max
 Math.min(1, 2)
 
-
+// 使用双头队列, enqueue, dequeue
+Deque<Integer> queue = new LinkedList<Integer>();
+// 可以 直接在头尾队列做操作
 
 

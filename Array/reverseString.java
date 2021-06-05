@@ -2,6 +2,9 @@
 // 双指针, 一头一尾, 往中间去
 // 类似题目: 判断回文
 private static char[] ReverseString(char[] charArray, int left, int right) {
+    // int left = 0;
+    // int right = charArray.length;
+    
     while (left < right) { // 判断越界
         swap(charArray, left, right);
         

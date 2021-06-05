@@ -1,3 +1,6 @@
+// https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
+// leetcode 33
+
 public class Solution {
     public int searchRotatedSortedArray(int[] A, int target) {
         if (A == null || A.length == 0) {

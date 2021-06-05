@@ -1,13 +1,55 @@
+// leetcode 88
+// https://leetcode-cn.com/problems/merge-sorted-array/
+
+// 合并两个有序的数组
+// 考虑和Linkedlist merge的区别 Leetcode 21
+public void merge(int[] nums1, int m, int[] nums2, int n) {
+    int p1 = 0, p2 = 0;
+    int[] sorted = new int[m + n];
+    int cur;
+
+    while (p1 < m  ||  p2 < n) { // 考虑到 and 和 or 的区别
+        // 先考虑两个特殊情况 
+        if (p1 == m) {
+            // p1到头了, 剩余全是p2 
+            cur = nums2[p2++];
+        } else if (p2 == n) {
+            // p2到头了, 剩余全是p1
+            cur = nums1[p1++];
+        } 
+        
+        // 然后才是判断谁比较大
+        if (nums1[p1] < nums2[p2]) {
+            cur = nums1[p1++];
+        } else {
+            cur = nums2[p2++];
+        }
+
+        // 最后才是写入
+        sorted[p1 + p2 - 1] = cur;
+    }
+
+    for (int i = 0; i != m + n; ++i) {
+        nums1[i] = sorted[i];
+    }
+}
+
+
+// 分治方法
 public static void mergeSort(int[] array, int low, int high) {
     // 当只有1个元素的时候, 退出递归
     if (high <= low) return;
 
     int mid = low + (high - low) / 2;
+    // 分治法
+
+    // divide
     // 左递归
     mergeSort(array, low, mid);
     // 右递归
     mergeSort(array, mid + 1, high);
-    // 合并
+    
+    // 合并 conquer
     merge(array, low, mid, high);
 }
 

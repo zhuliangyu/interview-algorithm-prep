@@ -15,6 +15,12 @@ https://leetcode-cn.com/leetbook/detail/top-interview-questions-easy/
 中级算法
 https://leetcode-cn.com/leetbook/read/top-interview-questions-medium/
 
+Java集合介绍
+https://www.liaoxuefeng.com/wiki/1252599548343744/1265109905179456
+
+AWS
+https://github.com/ptcodes/awesome-aws-certifications#whitepapers
+
 
 三步走: 完全不会做 → 有点思路(有个模糊的大概) → 熟练应用(明白各种细节)
 从量变到质变的过程
@@ -81,7 +87,8 @@ https://leetcode-cn.com/leetbook/read/top-interview-questions-medium/
 10. (套路): 刷题练到看见某条件，下意识地在几秒钟之内想到某个固定套路，想到做过的某道母题，你就有进步了, 最后把这项技能固化下来. 深入思考, 去领悟, 这部分是无法教的. 
 对于题目的深入思考, 升华, 才能将别人的代码变成自己的能力
 
-11. (重复)!重复!再重复!
+11. (背诵)!重复!再重复!
+一开始只要记忆一个大致的框架, 有一个模糊的头, 然后慢慢根据逻辑补充内容. 不要一开始就要求自己记忆所有细节, 这是不可能做到的. 
 都是考记忆熟练而已, 文科学习法, 弱项是记忆. 
 
 如何复习: ArrayList扩容复习法

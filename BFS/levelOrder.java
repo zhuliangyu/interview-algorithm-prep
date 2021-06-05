@@ -1,3 +1,5 @@
+// leetcode 102
+// https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
 
 // 数据结构: Tree + BFS
 public class Solution {
@@ -6,21 +8,26 @@ public class Solution {
         // 记录总结果
         List<List<Integer>> result = new ArrayList<>();
 
+        // 错误点: 自己没有加上这条防护
         if (root == null) {
             return result;
         }
 
+        // 错误点: 不是ArrayList, 而是LinkedList
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
         
         // 把root压入队尾, 爆炸的引子
         queue.offer(root);
 
+       // 记住结构: 有两个循环, 外面是while循环, 里面是for循环
+       // 有三个结果, 一个level层级结果, 一个result总结果, 最后一个是queue
         while (!queue.isEmpty()) {
 
             // 本层临时的记录
             List<Integer> level = new ArrayList<Integer>();
             
             // 本层元素的数量
+            // 错误点: 忘记这个size怎么算
             int size = queue.size();
             
             // 第二重循环: 在本层数量里面循环
@@ -28,23 +35,23 @@ public class Solution {
             for (int i = 0; i < size; i++) {
                 
                 // 取queue头 -- root
-                TreeNode head = queue.poll();
+                TreeNode currNode = queue.remove();
                 
                 // 本层记录加入
-                level.add(head.val);
+                // 错误点: 需要有两个加入, 一个加入level, 一个加入是queue
+                level.add(currNode.val);
                 
-                //////////////////////////////////
                 // for 节点 in cur的所有相邻节点：
                 // if 该节点有效且未被访问过：
-                if (head.left != null) {
+                if (currNode.left != null) {
                     // 下一层node加入
-                    queue.offer(head.left);
+                    queue.add(currNode.left);
                 }
                 
                 // if 该节点有效且未被访问过：
-                if (head.right != null) {
+                if (currNode.right != null) {
                     // 下一层node加入
-                    queue.offer(head.right);
+                    queue.add(currNode.right);
                 }
             }
 
