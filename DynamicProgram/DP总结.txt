@@ -1,0 +1,10 @@
+最基本, 没有求最值的问题
+    斐波那契数列
+    爬梯子
+
+
+背包问题
+    关注点: dp的index代表了什么, dp的value 代表了什么
+    https://leetcode-cn.com/problems/coin-change/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-sq9n/
+    https://leetcode-cn.com/problems/coin-change/solution/yi-tao-kuang-jia-jie-jue-bei-bao-wen-ti-h0y40/
+    coinChange
