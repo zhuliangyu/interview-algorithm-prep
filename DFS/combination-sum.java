@@ -21,10 +21,10 @@ public class Solution {
     }
 
     private void dfs(int[] nums,
-                     int startIndex,
-                     List<Integer> combination,
-                     int remainTarget,
-                     List<List<Integer>> results) {
+                    int startIndex,
+                    List<Integer> combination,
+                    int remainTarget,
+                    List<List<Integer>> results) {
 
         // 递归结束
         if (remainTarget == 0) {

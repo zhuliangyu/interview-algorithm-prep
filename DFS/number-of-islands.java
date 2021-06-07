@@ -1,3 +1,6 @@
+// https://leetcode-cn.com/problems/number-of-islands/
+// leetcode 200
+
 // Matrix + DFS 
 class Solution {
     public int numIslands(char[][] grid) {
@@ -21,6 +24,7 @@ class Solution {
                     // 通过这个头, 抽出所有周边的, 见到1 → 变成0
                     dfs(grid, r, c);
                 }
+                // 进入下一个循环 继续找下一个岛屿的头
             }
         }
 
@@ -31,7 +35,7 @@ class Solution {
         int nr = grid.length;
         int nc = grid[0].length;
 
-        // in area condition check
+        // in area condition check 越界查询
         if (r < 0 || c < 0 || r >= nr || c >= nc || grid[r][c] == '0') {
             return;
         }
@@ -44,6 +48,8 @@ class Solution {
         dfs(grid, r + 1, c);
         dfs(grid, r, c - 1);
         dfs(grid, r, c + 1);
+
+        // 这里为什么不用插销的操作? 因为没有记录的操作, 只是进入, 而且 r - 1并不会减少r
     }
 }
 

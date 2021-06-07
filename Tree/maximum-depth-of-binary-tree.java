@@ -52,6 +52,7 @@ public class Solution {
             return 0;
         }
         
+        // 步进 = root.left/right
         int leftDepth = maxDepth(root.left);
         int rightDepth = maxDepth(root.right);
         return Math.max(leftDepth, rightDepth) + 1;

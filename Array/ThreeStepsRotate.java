@@ -18,9 +18,12 @@ public void rotateString(char[] str, int offset) {
             return;
             
         offset = offset % str.length;
-
+        
+        // 翻转左边
         reverseString(str, 0, str.length - offset - 1);
+        // 翻转右边
         reverseString(str, str.length - offset, str.length - 1);
+        // 全部翻转
         reverseString(str, 0, str.length - 1);
 }
 

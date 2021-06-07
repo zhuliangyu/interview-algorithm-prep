@@ -6,9 +6,10 @@ Array + DFS
 	字符串切分
 
 Matrix + DFS
+	棋盘问题 (Word search)
 	岛屿问题
 	https://leetcode-cn.com/problems/number-of-islands/solution/dao-yu-lei-wen-ti-de-tong-yong-jie-fa-dfs-bian-li-/
-	 
+	 flood-fill
 
 Tree + DFS
 	递归 + traverse

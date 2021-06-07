@@ -1,12 +1,19 @@
 // 链接：https://leetcode-cn.com/problems/subsets/solution/hui-su-suan-fa-by-powcai-5/
+// leetcode 78
 
 // 这个是数组-组合问题
 class Solution {
+    
+    // 小本子记录总结果
+    List<List<Integer>> res = new ArrayList<>();
+
     public List<List<Integer>> subsets(int[] nums) {
-        // 小本子记录总结果
-        List<List<Integer>> res = new ArrayList<>();
         
-        backtrack(0, nums, res, new ArrayList<Integer>());
+        // 本分支的临时结果, 用来组成res的
+        List<Integer> tmp = new ArrayList<Integer>();
+
+        // traverse 递归写法
+        backtrack(0, nums, tmp);
         
         return res;
 
@@ -16,8 +23,8 @@ class Solution {
     private void backtrack(
         int start, // 数组的index, 递归运行到哪个index
         int[] nums, // 原始数组
-        List<List<Integer>> res, // 全部的结果 -- 全部结果的小本子记录
-        ArrayList<Integer> tmp // 本行的结果 -- 本行结果的小本子
+        // List<List<Integer>> res, // 全部的结果 -- 全部结果的小本子记录
+        List<Integer> tmp // 本行的结果 -- 本行结果的小本子
         ) {
         
         /**
@@ -33,21 +40,20 @@ class Solution {
         // 记录总结果集
         res.add(new ArrayList<>(tmp));
 
-        
         // for循环做选择, 关键找到选项!!!!
         // 为避免重复, 每次选择, 只能选择从start开始之后的数组的元素
         // 组合的问题, 这个是一般是index begin的题型
-        for (int j = start; j < nums.length; j++) {
+        for (int i = start; i < nums.length; i++) {
             
             // 本层先选择一个, 在结果加入一个元素
             // 记录本层结果集
-            tmp.add(nums[j]);
+            tmp.add(nums[i]);
             
             // 递归进入下一层
             // 递归步进: start起始点 + 1
             // + 1的原因是这个元素用过了, 之后就不能用了
             // 而且为了避免重复, 只能用从这个元素之后的组合, 这个元素之前的都不能用了
-            backtrack(j + 1, nums, res, tmp);
+            backtrack(i + 1, nums, tmp);
             // 当运行到这行, 本层之后的下一层都的路径已经完整记录到小本子里面去了
 
             // 本层撤销选择, 删除最后一个加入的元素
@@ -62,7 +68,4 @@ class Solution {
     }
 }
 
-// 作者：powcai
-// 链接：https://leetcode-cn.com/problems/subsets/solution/hui-su-suan-fa-by-powcai-5/
-// 来源：力扣（LeetCode）
-// 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+// 时间复杂度: 组合算法是 O(2^n)
