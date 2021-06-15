@@ -7,6 +7,8 @@ class Solution {
         // key == 目标的反数 (要寻找的) 
         // value == 目标 index
         Map<Integer, Integer> hashtable = new HashMap<Integer, Integer>();
+
+        // 枚举法
         for (int i = 0; i < nums.length; ++i) {
             
             // 明确我要找的目标, 反向的

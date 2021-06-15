@@ -1,3 +1,92 @@
+代码风格: 
+* 代码里面不超过三层的缩进, 缩进越少越好
+* 一行不超过80个字符
+* 命名, 用left代替l, right代替r
+* 二元运算符必须有空格 a + b
+* 单元运算符, 没有空格 a++, 没有空格; !flag, 没有空格
+* 长段的代码, 包装成 函数
+* 必须在函数的头部检测corner cases, if null
+* 如果返回Boollean类型的函数, 用 is+动词形式来命名
+* 不同的逻辑块, 你需要加上空行, 比如一个函数里面, 第一个部分是检测异常, 第二个部分是主函数, 第三个部分是对返回值的处理...每一个部分都需要空行按照逻辑分开
+* 两个函数之间要加空行
+* 每一个函数之间要有一个空行
+* 要写/**
+    * This method returns
+    * @param num The value to be squared.
+    * @return 
+    * @throws IOException  If an input or output exception occurred
+    */
+* 不能有重复代码
+* 不用用全局变量, 需要用的变量用参数传进去
+* 工程中, 尽量少用递归
+* 函数变量名, 用1-2个单词全拼做名称
+* 入口必须异常检测
+	if (param == null)
+	if (s == "")
+* 确保数组下表不越界, 用 short cur
+	while (i < a.length() && a[i] == ) {
+		// 前面做一个保护, 确保不越界的情况, 才可以取数组值
+	}
+* 使用某个Class的方法的是时候, 当你用点的时候, 一定要确定这个Class不为空, 才可以放心的去点. 必须要做一个保护措施
+	while (node != null && node.val > 0) {
+		.....
+	}
+* 多用continue, 少用 if 包裹, 减少我的缩进
+	for .... (GOOD)
+		if not满足
+			continue;
+		做一些事情
+		做一些事情
+	for .... (BAD) 
+		if 满足
+			做一些事情
+			做一些事情
+* 减少嵌套的if语句, 让嵌套的if变成并列关系
+  --------------------------------BAD--------------
+	if 条件1
+		做一些事情
+		做一些事情
+			if 条件2
+				做一些事情
+				做一些事情
+  ------------------------------GOOD---------------
+	if !条件1
+		continue;
+	做一些事情
+	做一些事情
+	if !条件2
+		continue;
+	做一些事情
+	做一些事情
+
+* 少用else, 如果前面的if里面可以return了, 后面的else就完全没有必要加
+if (A) {
+	if (B) {
+		...
+	} else {
+
+	}
+} else {
+	if (B) {
+		...
+	} else {
+		...
+	}
+}
+  --------------------- 不用 else 的版本 ------
+if (A && B) {
+	...
+}
+
+if (A && !B) {
+	....
+}
+
+
+
+
+
+
 题目分类的方法: 
 1. 算法: DFS, BFS, 双指针...
 2. 数据结构: Array, Matrix, LinkedList, Tree, Graph...
@@ -34,7 +123,15 @@
 * Graph
 * 并查集
 
+在面试考场中, 解题经历的几个步骤: https://github.com/lsr-explore/InterviewPrepAlgorithms
+	* Understand the question
+	* Identify test cases/conditions
+	* Design the solution
+	* Implement the solution
+	* Review the solution
+
 clarify问题: 
+	* input是什么? output是什么
 	* 我是否可以修改input? 
 	* 给我几个例子? 
 	* 是否可以重复元素?
@@ -44,6 +141,28 @@ clarify问题:
 		* 字符串的长度是多少? 
 		* 大小写敏感? 
 	* 我可以使用更多的内存空间么? 比如hashtable 
+
+寻找测试用例
+	* Failure cases - Where the expected solution doesn't exist
+	* Variety - wildly varying values or all values are the same
+	* Number of elements - small or very large set
+	* Null conditions
+	* Duplicate conditions
+	* Boundary conditions
+
+Design the solution
+Sketch out the design. If you know there is a more elegant solution, but you only know how to do the brute force approach, acknowledge that.
+	* Observations - Any observations, (e.g. At most one letter can exist an odd number of times in a palindrome)
+	* Algorithm - Be able to describe the algorithm in steps
+	* Code - Sketch out the solution in pseudo code.
+	* Complexity - Be able to describe the complexity of your solution.
+	* Consider alternatives - Describe why you are rejecting a certain approach.
+	* What data structures will be used.
+
+Implement the solution
+	* Write the solution
+	* Let the interview know of any utility methods that you don't feel need to be coded (e.g. swap)
+
 
 拆掉面试过程: 
 https://github.com/resumejob/awesome-interviews
@@ -55,6 +174,7 @@ https://osjobs.net/
 		* https://www.tryexponent.com/courses?src=nav&role=software-engineering
 		* https://www.interviewcake.com/
 		* http://educative.io/
+		* Omkar Deshpande 这个老师的教学视频, 非常的棒!!!
 	2. 作业 -- 答疑
 	3. 考试 -- 答疑
 	4. mock面试
@@ -77,6 +197,8 @@ https://osjobs.net/
 	* 网络
 	* 操作系统
 	* Java OOP 编程语言基础
+		* C++ https://hackr.io/blog/cpp-interview-questions
+
 	* 第三方框架基础
 	* JavaScript
 	* 前端面试题
@@ -85,6 +207,9 @@ https://osjobs.net/
 	* 设计模式
 	* Concurrence
 	* Cloud AWS
+* 训练通过OA
+	* 截图翻译
+	* 准备最近的OA题库
 * 刷近期的面经
 	* 一亩三分地 https://www.1point3acres.com/bbs/forum-145-1.html
 	* https://osjobs.net/topk/
@@ -92,6 +217,8 @@ https://osjobs.net/
 * 目标公司面试流程
 	* https://leetcode.com/discuss/interview-experience?currentPage=1&orderBy=hot&query=
 * 找职位内推
+	* 通过Linkedin寻找target公司recruiter的邮件, 给他们发送code email 
+	https://www.pathrise.com/guides/how-to-get-a-job-as-a-software-engineer
 * FAANG工程师, 模拟面试, 面试有给分数
 	* 模拟面试 - 算法 (5 - 6次)
 	* 模拟面试 - 系统设计 (3次)
@@ -169,18 +296,25 @@ https://www.liaoxuefeng.com/wiki/1252599548343744/1265109905179456
 AWS
 https://github.com/ptcodes/awesome-aws-certifications#whitepapers
 
+智力测试
+https://blog.csdn.net/superzyl/article/details/79068600?utm_medium=distribute.pc_relevant_download.none-task-blog-2~default~BlogCommendFromBaidu~default-12.nonecase&depth_1-utm_source=distribute.pc_relevant_download.none-task-blog-2~default~BlogCommendFromBaidu~default-12.nonecas
+
 
 三步走: 完全不会做 → 有点思路(有个模糊的大概) → 熟练应用(明白各种细节)
 从量变到质变的过程
 
 刷题第一遍: 
 	* 理解题意, 知道test case是什么
+		* 一个 case pass
+		* 一个 case 不pass
+		* 几个 edge Corner cases
 	* 有解题的方向: 立刻知道这道题用什么算法pattern来解题
 刷题第二遍: 
-	* 根据pattern我能实现这个算法
+	* 根据pattern我能磕磕碰碰的实现这个算法
+	* 培养自己讲题的能力
 刷题第三遍:
 	* 熟练度 + 时间控制, 简单题12分钟, 中等题: 20分钟 (重点攻克中等题)
-	* 培养自己讲题的能力
+	* 准确度: 写出bug free的Java代码在白板上
 
 靠自己的毅力是坚持不了多久的, 你需要买最贵的课程,让自己心疼付出的钱, 这样才能真的逼迫自己刷题.  
 
@@ -210,11 +344,13 @@ https://github.com/ptcodes/awesome-aws-certifications#whitepapers
 一看某道题目，就从最根本处知道此道题目的来龙去脉，知道它位于整个leetcode体系大厦中的哪个房间
 结构化归纳
 
-5. 画图, 画图, 画图 -- 寻找别人的配图
+5. 画图, 画图, 画图 -- 寻找别人的配图题解
 听觉学习: 讲解视频
 视觉学习: 画解法图
 读写学习: 整理标准答案 + 背诵
 实践学习: 使用leetcode自测
+
+5.5 找到这类型题目的通用模板, 把标准答案转化为模板的style
 
 6. (找答案) 找到自己可以理解的逻辑清晰的标准答案代码, 总结到自己的答案中.
 重点是答案的consistency, 可以总结出套路
@@ -279,6 +415,9 @@ https://github.com/ptcodes/awesome-aws-certifications#whitepapers
 
 15. 多参加模拟面试, 模拟的次数越多 , 越不紧张
 让自己丢脸, 调动自己情绪, 你才能记住
+你紧张你害怕面试失败, 是因为你觉得面试机会只有一次
+就如同你打游戏, 当你知道你可以有无限次死亡无限次训练后, 你并不会感受到压力
+你紧张, 说明你参加的面试不够多. 
 
 16. 刷公司题库
 按照公司tag和面经来准备

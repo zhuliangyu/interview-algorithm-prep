@@ -14,7 +14,7 @@ class Solution {
         int res = 0;
 
         // 注意: 结束条件
-        while(x != 0) {
+        while (x != 0) {
             //每次取末尾数字
             int tmp = x % 10;
 

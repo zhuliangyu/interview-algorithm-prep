@@ -1,3 +1,18 @@
+写出状态转移方程式 (最简单)
+
+所有情况for循环的顺序确定
+    为什么有时候从前往后, 有时候从后往前, 这个取决于状态转移方程, 是先前决定后面的, 还是后面决定先前
+
+初始化
+    * 为什么要初始化
+        状态转移方程需要有一个种子, 然后通过方程, 1变2, 2变4....生万物, 不能没有一个起始点
+        因为状态转移方程里面有一些边边角角的情况, 状态转移方程是无法覆盖到的
+
+
+
+
+
+
 最基本, 没有求最值的问题
     斐波那契数列
     爬梯子
@@ -8,3 +23,5 @@
     https://leetcode-cn.com/problems/coin-change/solution/yi-pian-wen-zhang-chi-tou-bei-bao-wen-ti-sq9n/
     https://leetcode-cn.com/problems/coin-change/solution/yi-tao-kuang-jia-jie-jue-bei-bao-wen-ti-h0y40/
     coinChange
+
+    

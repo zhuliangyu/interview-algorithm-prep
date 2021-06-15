@@ -63,11 +63,12 @@ public void swapIntegers(int[] A, int index1, int index2) {
 }
 
 // 打擂台 求最值
-int max=Integer.MIN_Value;
+int res = Integer.MIN_Value;
 for(int i = 0;i < arr.length; i++){
-    if(arr[i] > max){
-        max = arr[i];
-    }
+    // if(arr[i] > max){
+    //     max = arr[i];
+    // }
+    Math.max(res, arr[i]);
 }
 
 // fizz buzz
@@ -112,8 +113,9 @@ char[] c = str.toCharArray();
 
 // array -> ArrayList
 String[] array = {"a", "b", "c", "d", "e"};
-List<String> list1 = new ArrayList<String>();
-Collections.addAll(list1, array);
+// List<String> list1 = new ArrayList<String>();
+// Collections.addAll(list1, array);
+List<String> list1 = new ArrayList<String>(Arrays.asList(array));
 
 // sort arrayList
 // 因为sort会直接修改原值, 所以我们一般要复制一份, 然后对复制的List上做排序
@@ -150,4 +152,18 @@ Math.min(1, 2)
 Deque<Integer> queue = new LinkedList<Integer>();
 // 可以 直接在头尾队列做操作
 
+// 任意一个数组两两不同的组合
+    for(int i = 0 ; i < arr.length; i++) {
+        for(int j = i + 1; j < arr.length; j++) {
+            ...
+        }
+    }
 
+// new stack is different from new queue
+Stack<String> stack = new Stack<String>();
+
+Queue<Integer> queue = new LinkedList<Integer>();
+
+Queue<Book> queue=new PriorityQueue<Book>();  
+
+queue.add()

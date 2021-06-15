@@ -2,7 +2,7 @@
 // leetcode 169
 
 // 方法一： 排序
-// 因为答案占了一般多，排序一下，直接返回中间位置就是答案了。
+// 因为答案占了一半多，排序一下，直接返回中间位置就是答案了。
 class Solution {
     public int majorityElement(int[] nums) {
         Arrays.sort(nums);

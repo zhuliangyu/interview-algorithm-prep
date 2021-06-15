@@ -4,7 +4,7 @@ public class Solution {
      * @return: nothing
      */
 
-    // Array + 双指针的题目
+    // Array + 同向双指针的题目
     // 1. 确认两个指针目的(一个是写入用, 一个是traverse用)
     // 2. 确认两个指针移动的规则, 什么时候++
     // 3. 考虑指针越界的情况

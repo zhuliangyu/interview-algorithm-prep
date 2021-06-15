@@ -13,11 +13,12 @@ public class Solution {
         // 题目转换为: 找到partition 后kth个数
         int target = len - k;
 
+        // 以下是变化的地方
+        // 这里不是用递归, 用的是while 死循环, 直到找到目的的kth
         while (true) {
             int index = partition(nums, left, right);
             
-            // 以下是变化的地方
-            // 这里不是用递归, 用的是while 死循环, 直到找到目的的kth
+            //  二分法模板
             if (index == target) {
                 return nums[index];
             } else if (target > index) {

@@ -1,4 +1,8 @@
+// https://leetcode-cn.com/problems/combination-sum/
+// leetcode 39 
+
 // version 1: Remove duplicates & generate a new array
+// 组合类问题
 public class Solution {
     /**
      * @param candidates: A list of integers

@@ -13,8 +13,7 @@ void dfs(int[][] grid, int r, int c) {
 
 // 判断坐标 (r, c) 是否在网格中
 boolean inArea(int[][] grid, int r, int c) {
-    return 0 <= r && r < grid.length 
-        	&& 0 <= c && c < grid[0].length;
+    return 0 <= r && r < grid.length && 0 <= c && c < grid[0].length;
 }
 
 

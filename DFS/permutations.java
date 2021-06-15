@@ -5,6 +5,9 @@
 //  全排列 = traverse
 //  最关键, 先画出tree的图
 //  递归的步进: 是index begin的题型? 是used题型? 
+
+//  输入：nums = [1,2,3]
+//  输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
 public class Solution {
     // 最终结果. 全局的小本本, 可以供各种递归使用
     List<List<Integer>> res = new LinkedList<>();

@@ -1,9 +1,30 @@
+模板: http://chen-tao.github.io/2017/01/27/al-template/
+
+DFS（顶点） 
+{
+	if (退出递归的条件) {
+		return
+	}
+
+	1. 处理当前顶点
+	2. 记录当前节点为已访问
+　　
+	遍历与当前顶点相邻的所有未访问顶点
+　　{
+　　　　　　标记更改;
+　　　　　　DFS( 下一子状态);
+　　　　　　恢复更改;
+　　}
+}
+
+DFS回溯 -> 记忆化 -> DP
+
 总结: 
 
 Array + DFS
 	permutation
 	combination
-	字符串切分
+	字符串切分 subset
 
 Matrix + DFS
 	棋盘问题 (Word search)

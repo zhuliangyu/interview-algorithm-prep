@@ -3,6 +3,7 @@
 
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
+        // 设计 map
         // eat: ["ate","eat","tea"],
         // nat: ["nat","tan"],
         // bat: ["bat"]
