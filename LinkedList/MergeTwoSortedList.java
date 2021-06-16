@@ -35,6 +35,7 @@ public class Solution {
             pre = pre.next;
         }
         
+        // 这个做法和 对排序后的array做法非常的相似
         // 看哪个还没到结尾
         if (l1Curr != null) {
             // l1没结束--> l2肯定结束了

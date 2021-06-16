@@ -1,7 +1,97 @@
 // https://leetcode-cn.com/problems/kth-largest-element-in-an-array/
 // leetcode 215
+// 相似题目: 找中位数, 找k变成找n/2的位置
 
-// 方法1: 使用quickSort的partition 模板
+
+// 不能直接排序, 因为花费nlogn
+// quickselect的平均时间复杂度是 O(n)的
+// T(n) = O(n) Partition + T(n/2) 二分法 = O(n)时间复杂度
+
+// 方法1: 直接套用quickSort模板
+// 其实这个方法不好写, 不如第二个方法来的直观
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+         // write your code here
+        if (nums== null || nums.length == 0) {
+            return -1;
+        }
+        
+        return quickSelect(nums, 0, nums.length - 1, k);
+
+    }
+
+    private int quickSelect(int[] A, int start, int end, int k) {
+        if (start >= end) {
+            return A[start];
+        }
+        
+        int left = start, right = end;
+        
+        // 选中点, 选的不是index, 选的是value!!
+        // 记住
+        int pivot = A[(left + right) / 2];   
+        
+        // 为什么不是 left <  right
+        // 因为我要让出循环的时候, 必须是right left错开的
+        // 如果出循环的时候是==情况, 有一个边界的值, 一边在左边做排序, 一边在右边做排序, 最后会出现问题!!!
+        // 不能让他们出现重叠的状况, 所以必须让左边右边的指针错开
+        // 这里是在做partition!!!
+        while (left <= right) {
+
+            // 因为这里是从大到小第k个元素, 所以是 A[left] > pivot, 方向在这里不要弄错了
+            while (left <= right && A[left] > pivot) {
+                // left这个值比较大, 满足条件, 跳过这个index
+                left++;
+                // 对指针移位的时候, 每次都要检查是否越界
+            }
+            
+            while (left <= right && A[right] < pivot) {
+                // 跳过这个index, 因为这个比pivot小而且在右边
+                //
+                right--;
+            }
+            
+            if (left <= right) { // 不越界
+                // swap
+                int tmp = A[left];
+                A[left] = A[right];
+                A[right] = tmp;
+                
+                // 各自往前走一步
+                left++;
+                right--;
+            }
+        }
+        // partition 结束
+        
+        // 易错点: 出while循环之后
+        // left位于右边
+        // right 位于左边
+        // [start...right...left...end]
+        
+        // 递归方法
+        // 易错点这里, 是start 到right, 而不是到left
+
+        if (start + k - 1 <= right) {
+            return quickSelect(A, start, right, k);
+        }
+
+        if (start + k - 1 >= left) {
+            // 注意这里名次发生变化
+            return quickSelect(A, left, end, k - (left - start));
+        }
+
+        // 刚好选到了!
+        return A[right + 1];
+    }
+}
+
+
+
+
+
+
+// 方法2: 使用quickSort的partition 模板
 public class Solution {
 
     public int findKthLargest(int[] nums, int k) {
@@ -9,6 +99,8 @@ public class Solution {
         int left = 0;
         int right = len - 1;
 
+        // 从小到大  --> 倒数第k大
+        // 从小到大 --> 正数第len-k大
         // 转换一下，第 k 大元素的索引是 len - k
         // 题目转换为: 找到partition 后kth个数
         int target = len - k;
@@ -20,6 +112,7 @@ public class Solution {
             
             //  二分法模板
             if (index == target) {
+                // 找到了!!!!!
                 return nums[index];
             } else if (target > index) {
                 // 起始点, 从index + 1 开始
@@ -38,9 +131,12 @@ public class Solution {
         
         // pIndex 是 partition Index
         int pIndex = left;
+
+        // 不包含最后一个right元素, 因为已经做了pivot
         for (int i = left; i < right; i++) {
             if (nums[i] < pivot) {
                 // 找到小于 pivot 的元素, 全部交换到前面
+                // 注意是什么和什么做交换
                 swap(nums, pIndex, i);
                 pIndex++;
 
@@ -59,7 +155,7 @@ public class Solution {
     }
 }
 
-// 方法2: 使用已经实现好的PriorityQueue
+// 方法3: 使用已经实现好的PriorityQueue
 class Solution {
     public int findKthLargest(int[] nums, int k) {
         // 思考: 为什么求最大值, 我们用的最小堆

@@ -3,48 +3,7 @@
 
 // 最长回文子串
 
-// 方法一
-// 暴力方法 O(n^3)
-public class Solution {
-    /**
-     * @param s: input string
-     * @return: the longest palindromic substring
-     */
-    public String longestPalindrome(String s) {
-        int len = s.length();
-        int maxLen = 0;
-        String result = null;
-        // 关键: 找不重复的起始点和结束点
-        for (int start = 0; start < len; start++) {
-            for (int end = start; end < len; end++) {
-                // 小优化
-                // 排除了比maxLen小的情况了!
-                if (end - start + 1 <= maxLen) {
-                    continue;
-                }
-                
-                // 如果是回文串的话，更新答案
-                if (isPalindrome(s, start, end)) {
-                    // 思考这里为什么不需要打擂台: 因为前面的小优化
-                    maxLen = end - start + 1;
-                    result = s.substring(start, end + 1);
-                }
-            }
-        }
-        return result;
-    }
-
-    private boolean isPalindrome(String s, int start, int end) {
-        for (int i = 0; start + i < end - i; i++) {
-            if (s.charAt(start + i) != s.charAt(end - i)) {
-                return false;
-            }
-        }
-        return true;
-    }
-}
-
-// 方法二: 中心串回文法 (背向双指针!)
+// 方法二: 中心串回文法 (背向双指针!) n^2时间复杂度
 public class Solution {
     /**
      * @param s: input string
@@ -92,10 +51,8 @@ public class Solution {
             right++;
         }
 
+        // 跳出while的限制
+        // 或者left < 0, 或者 right == s.length() 
         return len;
     }
 }
-
-// 方法三: 动态规划 (区间型动态规划)
-// 见区间型动态规划文件夹
-

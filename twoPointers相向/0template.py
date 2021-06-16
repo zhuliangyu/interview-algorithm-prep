@@ -1,4 +1,15 @@
-# 一共就两种题型
+# 一共就三种种题型
+#     reverse
+#         翻转字符串
+#         判断回文串
+    
+#     two sum
+#         两数之和
+#         三数之和
+        
+#     partition
+#         快速排序
+#         颜色排序
 
 def reverse(s):
     left, right = 0, len(s)-1

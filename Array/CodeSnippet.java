@@ -167,3 +167,9 @@ Queue<Integer> queue = new LinkedList<Integer>();
 Queue<Book> queue=new PriorityQueue<Book>();  
 
 queue.add()
+
+// 数组 排序
+Arrays.sort();
+
+//List 排序
+Collections.sort();

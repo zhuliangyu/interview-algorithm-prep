@@ -1,12 +1,31 @@
+考查三种题型: 
+* quick sort
+* merge sort
+* quick select
+
 Insertion sort O(N^2)
     * stability, 如果不改变, 位置不会变化 
     * small array, good solution
     * array is almost sorted, 这个很快, 只改变几个不对的位置
 
-merge sort: stable, but use more space
+T(n) = 2T(n/2) + T(n)
+merge sort:
+    * 永远是nlogn
+    * but use more space O(n)的空间复杂度
+    * stable
+    * lazy manager算法
+        * 先做递归2T(n/2), 然后后做事情 T(n)
+        * 先局部有序, 然后再merge让整体有序
 
-quicksort 如果你的pivot选择不是random, 会变成o(n^2), 而不是nlogn
-)
+quick sort 
+    * 时间复杂度
+        pivot不选第一个数字, 也不选最后一个数字
+        如果你的pivot选择不是random, 最长情况会变成o(n^2), 而不是nlogn - 平均时间复杂度
+        最差的情况: 当你的输入已经排好序了, 每次都选第一个数字, 变成n^2
+    * 空间复杂度: O(1)
+    * 不是stable的
+    * 先做事情T(n), 然后去做递归2T(n/2)
+
 distributed of inputs
 
 深刻理解: do work upfront 和 do work later的两种方式: 
